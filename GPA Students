@@ -1,0 +1,21 @@
+def calculate_gpa():
+    points_map = {"A": 4.0, "B": 3.0, "C": 2.0, "D": 1.0, "F": 0.0}
+    total_points = 0
+    total_credits = 0
+    
+    num_courses = int(input("How many courses did you take? "))
+    
+    for i in range(num_courses):
+        grade = input(f"Enter grade for course {i+1} (A-F): ").upper()
+        credits = int(input(f"Enter credit hours for course {i+1}: "))
+        
+        if grade in points_map:
+            total_points += points_map[grade] * credits
+            total_credits += credits
+        else:
+            print("Invalid Grade! Skipping...")
+
+    gpa = total_points / total_credits
+    print(f"Your final GPA is: {round(gpa, 2)}")
+
+calculate_gpa()
